@@ -10,6 +10,11 @@ namespace Infraestructure.Persistence.Configurations
         {
             builder.Property(r => r.FechaEntrada).HasColumnType("datetime2");
             builder.Property(r => r.FechaSalida).HasColumnType("datetime2");
+
+            builder.HasOne(r => r.Habitacion)
+                .WithMany(h => h.Reservas)
+                .HasForeignKey(r => r.HabitacionId)
+                .OnDelete(DeleteBehavior.ClientCascade);
         }
     }
 }

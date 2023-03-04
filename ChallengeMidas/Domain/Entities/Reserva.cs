@@ -6,6 +6,7 @@
         public DateTime FechaEntrada { get; set; }
         public DateTime FechaSalida { get; set; }
         public string Duracion { get; set; }
+        public int HabitacionId { get; set; }
         public virtual Habitacion Habitacion { get; set; }
         public virtual Huesped Huesped { get; set; }
     }
