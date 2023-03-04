@@ -9,6 +9,7 @@ namespace Infraestructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Habitacion> builder)
         {
             builder.Property(h => h.TipoHabitacionEnum).IsRequired();
+            builder.Property(h=> h.Precio).HasColumnType("decimal").HasPrecision(18,3);
         }
     }
 }
