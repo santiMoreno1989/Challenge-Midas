@@ -1,5 +1,6 @@
 ﻿using Application.Common.Dtos.Requests;
 using Application.Common.Dtos.Responses;
+using Application.Common.Exceptions;
 using Application.Common.Interfaces.IRepositories;
 using Application.Common.Interfaces.IServices;
 using AutoMapper;
@@ -30,7 +31,7 @@ namespace Application.Services
         {
             var huesped = await _huespedRepository.GetById(id);
 
-            if (huesped == null) { throw new KeyNotFoundException("El Huesped que intenta eliminar no existe en la base de datos."); }
+            if (huesped == null) { throw new NotFoundException("El Huesped que intenta eliminar no existe en la base de datos."); }
 
             await _huespedRepository.DeleteAsync(huesped);
         }
