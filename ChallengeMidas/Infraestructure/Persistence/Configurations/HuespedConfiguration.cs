@@ -11,6 +11,8 @@ namespace Infraestructure.Persistence.Configurations
             builder.Property(h => h.Nombre).HasColumnType("VARCHAR(100)").IsRequired();
             builder.Property(h => h.Apellido).HasColumnType("VARCHAR(150)").IsRequired();
             builder.Property(h => h.Email).HasColumnType("VARCHAR(100)").IsRequired();
+            builder.Property(h => h.HabitacionId).IsRequired(false);
+            builder.Property(h => h.ReservaId).IsRequired(false);
 
             builder.HasOne(h => h.Habitacion)
                     .WithMany(h => h.Huespedes)
